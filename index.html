@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nailit Academy | IELTS, PTE & Spoken English</title>
+
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Custom configuration for strict Cyan, Yellow, White theme without Blues -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                cyan: '#00FFFF', // Pure Cyan
+                cyandark: '#00cccc', // Darker cyan for readability on white
+                yellow: '#FFDF00', // Vibrant Yellow
+              },
+              // Using neutral to avoid default gray's blue tint
+              neutral: {
+                50: '#fafafa',
+                100: '#f5f5f5',
+                800: '#262626',
+                900: '#171717',
+                950: '#0a0a0a',
+              },
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Smooth transitions for modal */
+      #mvp-modal {
+        transition: opacity 0.3s ease;
+      }
+      #mvp-modal-content {
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans text-neutral-800 bg-white min-h-screen overflow-x-hidden"
+  >
+    <!-- --- TOP BAR --- -->
+    <div
+      class="bg-neutral-950 text-white text-sm py-2 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center z-50 relative"
+    >
+      <div class="flex flex-wrap items-center space-x-4 mb-2 md:mb-0">
+        <div class="flex items-center space-x-3 text-lg">
+          <a
+            href="#"
+            onclick="openModal('Facebook Redirect')"
+            class="hover:text-brand-cyan transition-colors"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="#"
+            onclick="openModal('Instagram Redirect')"
+            class="hover:text-brand-cyan transition-colors"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="#"
+            onclick="openModal('YouTube Redirect')"
+            class="hover:text-brand-cyan transition-colors"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+        <span
+          class="hidden md:inline-block border-l border-neutral-700 h-4"
+        ></span>
+        <div
+          onclick="openModal('Email Us')"
+          class="flex items-center space-x-2 hover:text-brand-cyan cursor-pointer transition-colors"
+        >
+          <i class="fas fa-envelope"></i>
+          <span>info@nailitacademy.com</span>
+        </div>
+        <span
+          class="hidden md:inline-block border-l border-neutral-700 h-4"
+        ></span>
+        <div
+          onclick="openModal('Call Us')"
+          class="flex items-center space-x-2 hover:text-brand-cyan cursor-pointer transition-colors"
+        >
+          <i class="fas fa-phone"></i>
+          <span>+91 98765 43210</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-3 mt-2 md:mt-0">
+        <button
+          onclick="openModal('Study Abroad Consultation')"
+          class="bg-brand-cyan hover:bg-[#00dada] text-black px-4 py-1.5 rounded-md font-bold flex items-center space-x-2 transition-colors"
+        >
+          <i class="fas fa-globe"></i>
+          <span>STUDY ABROAD</span>
+        </button>
+        <button
+          onclick="openModal('View Upcoming Batches')"
+          class="bg-brand-yellow hover:bg-[#e6c800] text-black px-4 py-1.5 rounded-md font-bold flex items-center space-x-2 transition-colors"
+        >
+          <i class="fas fa-calendar-alt"></i>
+          <span>UPCOMING BATCHES</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- --- NAVIGATION --- -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+      <div
+        class="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center py-4"
+      >
+        <!-- LOGO AREA (With robust fallback) -->
+        <div class="flex items-center">
+          <a
+            href="#"
+            class="block h-16 cursor-pointer ml-4"
+            onclick="openModal('Go to Homepage')"
+          >
+            <img
+              src="ddd.png"
+              alt="Nailit Academy Logo"
+              height="44"
+              margin="0"
+              class="h-full w-auto object-contain"
+              onerror="
+                this.onerror = null;
+                this.outerHTML =
+                  '<div class=\'flex items-center h-full text-3xl font-extrabold tracking-tight\'><span class=\'text-black\'>Nail<span class=\'text-brand-cyandark\'>i</span>t</span><span class=\'text-neutral-500 font-light ml-2\'>Academy</span></div>';
+              "
+            />
+          </a>
+        </div>
+
+        <div class="hidden lg:flex space-x-8 font-bold text-neutral-700">
+          <a
+            href="#"
+            onclick="openModal('Navigate to Home')"
+            class="text-brand-cyandark border-b-2 border-brand-cyandark pb-1"
+            >Home</a
+          >
+          <a
+            href="#"
+            onclick="openModal('Navigate to IELTS')"
+            class="hover:text-brand-cyandark transition-colors"
+            >IELTS</a
+          >
+          <a
+            href="#"
+            onclick="openModal('Navigate to Spoken English')"
+            class="hover:text-brand-cyandark transition-colors"
+            >Spoken English</a
+          >
+          <a
+            href="#"
+            onclick="openModal('Navigate to Career Counseling')"
+            class="hover:text-brand-cyandark transition-colors"
+            >Career Counseling</a
+          >
+        </div>
+
+        <div class="hidden lg:flex space-x-4">
+          <button
+            onclick="openModal('Book a Free Test')"
+            class="border-2 border-brand-cyandark text-brand-cyandark hover:bg-neutral-50 px-5 py-2 rounded-lg font-bold transition-colors"
+          >
+            BOOK A TEST
+          </button>
+          <button
+            onclick="openModal('Contact Us Form')"
+            class="bg-brand-cyan text-black hover:bg-[#00dada] px-5 py-2 rounded-lg font-bold transition-colors shadow-lg shadow-brand-cyan/20"
+          >
+            CONTACT US
+          </button>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden">
+          <button
+            onclick="openModal('Open Mobile Menu')"
+            class="text-neutral-800 hover:text-brand-cyandark focus:outline-none"
+          >
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- --- HERO SLIDER --- -->
+    <div
+      class="relative h-[500px] md:h-[650px] w-full overflow-hidden bg-neutral-900"
+      id="hero-slider"
+    >
+      <!-- Slide 1 -->
+      <div
+        class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10"
+        data-index="0"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-neutral-900/70 to-transparent z-10"
+        ></div>
+        <img
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80"
+          alt="IELTS Coaching"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div
+          class="relative z-20 h-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col justify-center"
+        >
+          <div class="max-w-2xl mt-[-80px] md:mt-[-120px]">
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight"
+            >
+              Achieve the Highest Band Score
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-200 mb-8 font-light">
+              Expert coaching for IELTS, PTE, and TOEFL. We make it possible.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                onclick="openModal('Book a Free Test')"
+                class="bg-brand-yellow hover:bg-[#e6c800] text-black font-extrabold py-3 px-8 rounded-lg text-lg shadow-lg shadow-brand-yellow/20 transition-transform transform hover:-translate-y-1"
+              >
+                Book a Free Test
+              </button>
+              <button
+                onclick="openModal('Learn More - IELTS')"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div
+        class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0"
+        data-index="1"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-neutral-900/70 to-transparent z-10"
+        ></div>
+        <img
+          src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1920&q=80"
+          alt="Spoken English"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div
+          class="relative z-20 h-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col justify-center"
+        >
+          <div class="max-w-2xl mt-[-80px] md:mt-[-120px]">
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight"
+            >
+              Master the English Language
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-200 mb-8 font-light">
+              Comprehensive spoken and written English courses for all levels.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                onclick="openModal('Explore Spoken English Courses')"
+                class="bg-brand-cyan hover:bg-[#00dada] text-black font-extrabold py-3 px-8 rounded-lg text-lg shadow-lg shadow-brand-cyan/20 transition-transform transform hover:-translate-y-1"
+              >
+                Explore Courses
+              </button>
+              <button
+                onclick="openModal('Learn More - English')"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div
+        class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0"
+        data-index="2"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-neutral-950/90 via-neutral-900/70 to-transparent z-10"
+        ></div>
+        <img
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80"
+          alt="Career Counseling"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div
+          class="relative z-20 h-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col justify-center"
+        >
+          <div class="max-w-2xl mt-[-80px] md:mt-[-120px]">
+            <h1
+              class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight"
+            >
+              Expert Career Counseling
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-200 mb-8 font-light">
+              Guidance to help you choose the right path and nail your dreams.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                onclick="openModal('Get Counseled Today')"
+                class="bg-brand-yellow hover:bg-[#e6c800] text-black font-extrabold py-3 px-8 rounded-lg text-lg shadow-lg shadow-brand-yellow/20 transition-transform transform hover:-translate-y-1"
+              >
+                Get Counseled Today
+              </button>
+              <button
+                onclick="openModal('Learn More - Counseling')"
+                class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <button
+        id="prev-btn"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/80 text-white w-12 h-12 flex items-center justify-center rounded-full backdrop-blur-sm transition-colors text-xl"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button
+        id="next-btn"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/80 text-white w-12 h-12 flex items-center justify-center rounded-full backdrop-blur-sm transition-colors text-xl"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Slide Indicators -->
+      <div
+        class="absolute bottom-32 left-1/2 -translate-x-1/2 z-30 flex space-x-3"
+        id="slider-dots"
+      >
+        <button
+          class="dot w-8 h-3 bg-brand-cyan rounded-full transition-all duration-300"
+          data-index="0"
+        ></button>
+        <button
+          class="dot w-3 h-3 bg-white/50 hover:bg-white rounded-full transition-all duration-300"
+          data-index="1"
+        ></button>
+        <button
+          class="dot w-3 h-3 bg-white/50 hover:bg-white rounded-full transition-all duration-300"
+          data-index="2"
+        ></button>
+      </div>
+    </div>
+
+    <!-- --- OVERLAPPING FEATURE CARDS --- -->
+    <div class="relative z-30 max-w-7xl mx-auto px-4 md:px-8 -mt-24 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-2 border-b-4 border-brand-cyan"
+        >
+          <div
+            class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center text-brand-cyandark mb-4 text-2xl shadow-inner"
+          >
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="text-3xl font-bold text-black mb-1">10,000+</h3>
+          <p
+            class="text-neutral-500 font-bold uppercase text-sm tracking-wider"
+          >
+            Students Trained
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-2 border-b-4 border-brand-yellow"
+        >
+          <div
+            class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center text-brand-yellow mb-4 text-2xl shadow-inner"
+          >
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="text-3xl font-bold text-black mb-1">95%</h3>
+          <p
+            class="text-neutral-500 font-bold uppercase text-sm tracking-wider"
+          >
+            Top Band Scores
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-2 border-b-4 border-brand-cyan"
+        >
+          <div
+            class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center text-brand-cyandark mb-4 text-2xl shadow-inner"
+          >
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-black mb-2 mt-1">
+            Quality Training
+          </h3>
+          <p
+            class="text-neutral-500 font-bold uppercase text-sm tracking-wider"
+          >
+            Expert Faculty
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-xl p-8 flex flex-col items-center text-center transform transition duration-300 hover:-translate-y-2 border-b-4 border-brand-yellow"
+        >
+          <div
+            class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center text-brand-yellow mb-4 text-2xl shadow-inner"
+          >
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-black mb-2 mt-1">Flexible</h3>
+          <p
+            class="text-neutral-500 font-bold uppercase text-sm tracking-wider"
+          >
+            Online & Offline
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- --- WHY CHOOSE US / APPLY --- -->
+    <section class="py-16 bg-neutral-50 border-t border-neutral-200">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="lg:w-1/2">
+            <div
+              class="inline-block bg-white text-brand-cyandark font-extrabold px-4 py-2 rounded-full mb-4 shadow-sm border border-neutral-200"
+            >
+              A Place Where You Nail Your Dreams
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-6">
+              Unlock Your Potential with
+              <span class="text-brand-cyandark">Nailit Academy</span>
+            </h2>
+            <p class="text-neutral-600 text-lg mb-6 leading-relaxed">
+              Whether you're aiming for a top score in IELTS, looking to master
+              spoken English, or seeking expert career counseling, our dedicated
+              team of professionals is here to guide you every step of the way.
+            </p>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-cyan flex items-center justify-center text-black mt-1 mr-3 text-sm"
+                >
+                  <i class="fas fa-check"></i>
+                </div>
+                <span class="text-neutral-800 font-medium"
+                  >Personalized 1-on-1 speaking sessions and feedback.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-cyan flex items-center justify-center text-black mt-1 mr-3 text-sm"
+                >
+                  <i class="fas fa-check"></i>
+                </div>
+                <span class="text-neutral-800 font-medium"
+                  >Comprehensive study materials and weekly mock tests.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-cyan flex items-center justify-center text-black mt-1 mr-3 text-sm"
+                >
+                  <i class="fas fa-check"></i>
+                </div>
+                <span class="text-neutral-800 font-medium"
+                  >Expert career counseling for university admissions
+                  abroad.</span
+                >
+              </li>
+            </ul>
+
+            <button
+              onclick="openModal('Apply Now for Next Batch')"
+              class="bg-black hover:bg-neutral-800 text-brand-cyan font-bold py-3 px-8 rounded-lg flex items-center space-x-2 transition-all shadow-lg group"
+            >
+              <span>Apply Now for Next Batch</span>
+              <i
+                class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform ml-2"
+              ></i>
+            </button>
+          </div>
+
+          <div class="lg:w-1/2 relative">
+            <div
+              class="absolute inset-0 bg-brand-cyan rounded-2xl transform translate-x-4 translate-y-4"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+              alt="Students studying"
+              class="relative z-10 rounded-2xl shadow-xl w-full object-cover h-[500px]"
+            />
+            <!-- Floating Badge -->
+            <div
+              class="absolute -left-8 top-12 bg-white p-4 rounded-xl shadow-xl z-20 flex items-center space-x-4 animate-bounce-slow"
+            >
+              <div class="bg-brand-yellow p-3 rounded-full text-black text-xl">
+                <i class="fas fa-award"></i>
+              </div>
+              <div>
+                <p
+                  class="text-xs text-neutral-500 font-bold uppercase tracking-wider"
+                >
+                  Certified
+                </p>
+                <p class="text-lg font-extrabold text-black">Best Institute</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- UPCOMING EVENTS & BATCHES --- -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-4">
+            Upcoming <span class="text-brand-cyandark">Batches & Events</span>
+          </h2>
+          <p class="text-neutral-600 max-w-2xl mx-auto">
+            Don't miss out on our upcoming preparation batches, free seminars,
+            and counseling sessions designed to accelerate your success.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Event 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border border-neutral-200 group"
+          >
+            <div
+              class="bg-neutral-900 p-4 text-center text-brand-cyan relative overflow-hidden"
+            >
+              <div
+                class="absolute -right-4 -top-4 w-16 h-16 bg-brand-cyan rounded-full opacity-20 transform group-hover:scale-150 transition-transform duration-500"
+              ></div>
+              <h3 class="text-3xl font-black relative z-10 text-white">15</h3>
+              <p
+                class="text-sm font-bold uppercase tracking-wider relative z-10 text-brand-cyan"
+              >
+                June 2026
+              </p>
+            </div>
+            <div class="p-6">
+              <div
+                class="flex items-center text-xs text-brand-cyandark font-extrabold mb-2 space-x-2"
+              >
+                <i class="fas fa-book-open"></i>
+                <span>IELTS PREPARATION</span>
+              </div>
+              <h4 class="text-xl font-bold text-black mb-3">
+                Intensive IELTS Crash Course
+              </h4>
+              <div
+                class="flex items-center text-neutral-500 text-sm mb-4 font-medium"
+              >
+                <i class="fas fa-clock mr-2"></i>
+                <span>10:00 AM - 02:00 PM (Offline)</span>
+              </div>
+              <button
+                onclick="openModal('Reserve Seat - IELTS Crash Course')"
+                class="w-full border-2 border-neutral-300 text-black hover:bg-brand-cyan hover:border-brand-cyan font-bold py-2 rounded-lg transition-colors"
+              >
+                Reserve Seat
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border border-neutral-200 group"
+          >
+            <div
+              class="bg-brand-yellow p-4 text-center text-black relative overflow-hidden"
+            >
+              <div
+                class="absolute -left-4 -bottom-4 w-16 h-16 bg-white rounded-full opacity-30 transform group-hover:scale-150 transition-transform duration-500"
+              ></div>
+              <h3 class="text-3xl font-black relative z-10">22</h3>
+              <p
+                class="text-sm font-bold uppercase tracking-wider relative z-10"
+              >
+                June 2026
+              </p>
+            </div>
+            <div class="p-6">
+              <div
+                class="flex items-center text-xs text-brand-yellow font-extrabold mb-2 space-x-2"
+              >
+                <i class="fas fa-graduation-cap"></i>
+                <span>CAREER COUNSELING</span>
+              </div>
+              <h4 class="text-xl font-bold text-black mb-3">
+                Study in UK & Canada Seminar
+              </h4>
+              <div
+                class="flex items-center text-neutral-500 text-sm mb-4 font-medium"
+              >
+                <i class="fas fa-clock mr-2"></i>
+                <span>04:00 PM - 06:00 PM (Online)</span>
+              </div>
+              <button
+                onclick="openModal('Register for Free - UK/Canada Seminar')"
+                class="w-full border-2 border-neutral-300 text-black hover:bg-brand-yellow hover:border-brand-yellow font-bold py-2 rounded-lg transition-colors"
+              >
+                Register for Free
+              </button>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow border border-neutral-200 group"
+          >
+            <div
+              class="bg-neutral-900 p-4 text-center text-white relative overflow-hidden"
+            >
+              <div
+                class="absolute -right-4 -top-4 w-16 h-16 bg-brand-cyan rounded-full opacity-20 transform group-hover:scale-150 transition-transform duration-500"
+              ></div>
+              <h3 class="text-3xl font-black relative z-10">01</h3>
+              <p
+                class="text-sm font-bold uppercase tracking-wider relative z-10 text-brand-cyan"
+              >
+                July 2026
+              </p>
+            </div>
+            <div class="p-6">
+              <div
+                class="flex items-center text-xs text-brand-cyandark font-extrabold mb-2 space-x-2"
+              >
+                <i class="fas fa-users"></i>
+                <span>SPOKEN ENGLISH</span>
+              </div>
+              <h4 class="text-xl font-bold text-black mb-3">
+                Beginners English New Batch
+              </h4>
+              <div
+                class="flex items-center text-neutral-500 text-sm mb-4 font-medium"
+              >
+                <i class="fas fa-clock mr-2"></i>
+                <span>07:00 AM - 08:30 AM (Hybrid)</span>
+              </div>
+              <button
+                onclick="openModal('Reserve Seat - Beginners English')"
+                class="w-full border-2 border-neutral-300 text-black hover:bg-brand-cyan hover:border-brand-cyan font-bold py-2 rounded-lg transition-colors"
+              >
+                Reserve Seat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- GALLERY SECTION --- -->
+    <section class="py-20 bg-neutral-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-black mb-2">
+              Life at <span class="text-brand-cyandark">Nailit</span>
+            </h2>
+            <p class="text-neutral-600">
+              Glimpses of our vibrant campus, classes, and successful students.
+            </p>
+          </div>
+          <button
+            onclick="openModal('View All Photos Gallery')"
+            class="mt-4 md:mt-0 text-brand-cyandark font-bold hover:text-black flex items-center transition-colors"
+          >
+            View All Photos <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          <div class="col-span-2 row-span-2 rounded-xl overflow-hidden group">
+            <img
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+              alt="Classroom"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="rounded-xl overflow-hidden group">
+            <img
+              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80"
+              alt="Group Discussion"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="rounded-xl overflow-hidden group">
+            <img
+              src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80"
+              alt="Counseling"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="col-span-2 rounded-xl overflow-hidden group">
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80"
+              alt="Graduation"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --- FOOTER / CONTACT SECTION --- -->
+    <footer
+      class="bg-neutral-950 text-white pt-20 pb-10 border-t-4 border-brand-cyan"
+    >
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+        >
+          <!-- Brand Column -->
+          <div>
+            <!-- Fallback logo in footer too -->
+            <div class="mb-6 bg-white p-2 rounded inline-block h-20">
+              <img
+                src="aa.png"
+                alt="Nailit Academy Logo"
+                width="150"
+                height="60"
+                class="h-full w-auto object-contain"
+                onerror="
+                  this.onerror = null;
+                  this.outerHTML =
+                    '<div class=\'flex items-center h-full px-2 text-2xl font-extrabold\'><span class=\'text-black\'>Nail<span class=\'text-brand-cyandark\'>i</span>t</span></div>';
+                "
+              />
+            </div>
+            <p class="text-neutral-400 mb-6 leading-relaxed">
+              "A place where you nail your dreams." We are dedicated to
+              providing world-class training in English proficiency and guiding
+              students to successful international careers.
+            </p>
+            <div class="flex space-x-4">
+              <button
+                onclick="openModal('Facebook')"
+                class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-brand-cyan hover:text-black transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button
+                onclick="openModal('Instagram')"
+                class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-brand-cyan hover:text-black transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+              <button
+                onclick="openModal('YouTube')"
+                class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors"
+              >
+                <i class="fab fa-youtube"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4
+              class="text-xl font-bold mb-6 border-b border-neutral-700 pb-2 inline-block"
+            >
+              Quick Links
+            </h4>
+            <ul class="space-y-3 text-neutral-400">
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('About Us')"
+                  class="hover:text-brand-yellow transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-cyan"
+                  ></i>
+                  About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('Our Courses')"
+                  class="hover:text-brand-yellow transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-cyan"
+                  ></i>
+                  Our Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('Study Abroad')"
+                  class="hover:text-brand-yellow transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-cyan"
+                  ></i>
+                  Study Abroad</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('Upcoming Events')"
+                  class="hover:text-brand-yellow transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-cyan"
+                  ></i>
+                  Upcoming Events</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('Student Success')"
+                  class="hover:text-brand-yellow transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-cyan"
+                  ></i>
+                  Student Success</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Courses -->
+          <div>
+            <h4
+              class="text-xl font-bold mb-6 border-b border-neutral-700 pb-2 inline-block"
+            >
+              Popular Courses
+            </h4>
+            <ul class="space-y-3 text-neutral-400">
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('IELTS Preparation')"
+                  class="hover:text-brand-cyan transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-yellow"
+                  ></i>
+                  IELTS Preparation</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('OET Coaching')"
+                  class="hover:text-brand-cyan transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-yellow"
+                  ></i>
+                  OET Coaching</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('PTE Academic')"
+                  class="hover:text-brand-cyan transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-yellow"
+                  ></i>
+                  PTE Academic</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('TOEFL Training')"
+                  class="hover:text-brand-cyan transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-yellow"
+                  ></i>
+                  TOEFL Training</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="openModal('Spoken English')"
+                  class="hover:text-brand-cyan transition-colors flex items-center"
+                  ><i
+                    class="fas fa-arrow-right text-xs mr-2 text-brand-yellow"
+                  ></i>
+                  Spoken English</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div>
+            <h4
+              class="text-xl font-bold mb-6 border-b border-neutral-700 pb-2 inline-block"
+            >
+              Contact Us
+            </h4>
+            <ul class="space-y-4 text-neutral-400">
+              <li class="flex items-start">
+                <i
+                  class="fas fa-map-marker-alt text-brand-cyan mr-3 mt-1 flex-shrink-0 text-xl"
+                ></i>
+                <span
+                  >123 Education Hub Building, Learning Street, Knowledge City,
+                  10001</span
+                >
+              </li>
+              <li class="flex items-center">
+                <i
+                  class="fas fa-phone text-brand-cyan mr-3 flex-shrink-0 text-lg"
+                ></i>
+                <span>+91 983210</span>
+              </li>
+              <li class="flex items-center">
+                <i
+                  class="fas fa-envelope text-brand-cyan mr-3 flex-shrink-0 text-lg"
+                ></i>
+                <span>info@nailitacademy.com</span>
+              </li>
+            </ul>
+            <button
+              onclick="openModal('Book a Free Counseling')"
+              class="mt-6 w-full bg-brand-cyan hover:bg-[#00dada] text-black font-bold py-3 rounded transition-colors"
+            >
+              Book a Free Counseling
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-neutral-500 text-sm font-medium"
+        >
+          <p>&copy; 2026 Nailit Academy. All rights reserved.</p>
+          <div class="flex space-x-6 mt-4 md:mt-0">
+            <a
+              href="#"
+              onclick="openModal('Privacy Policy')"
+              class="hover:text-brand-cyan transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              onclick="openModal('Terms of Service')"
+              class="hover:text-brand-cyan transition-colors"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- --- MVP MODAL POPUP --- -->
+    <div
+      id="mvp-modal"
+      class="fixed inset-0 bg-neutral-950/80 z-[100] hidden flex items-center justify-center backdrop-blur-sm"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 m-4 transform scale-95 border-t-8 border-brand-cyan"
+        id="mvp-modal-content"
+      >
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-2xl font-black text-black" id="modal-title">
+            Action
+          </h3>
+          <button
+            onclick="closeModal()"
+            class="text-neutral-400 hover:text-red-500 text-3xl leading-none"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div id="modal-body" class="text-neutral-600 mb-6 font-medium">
+          <!-- Dynamic Content Goes Here -->
+        </div>
+
+        <form id="mvp-form" onsubmit="submitMvpForm(event)">
+          <div class="space-y-3">
+            <input
+              type="text"
+              placeholder="Full Name"
+              class="w-full p-3 bg-neutral-50 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:bg-white transition-all text-black"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="w-full p-3 bg-neutral-50 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:bg-white transition-all text-black"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              class="w-full p-3 bg-neutral-50 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-cyan focus:bg-white transition-all text-black"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-black text-brand-cyan hover:bg-neutral-800 font-extrabold py-4 rounded-lg mt-6 shadow-lg transition-colors flex justify-center items-center"
+          >
+            Submit Request <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+      // --- MODAL MVP LOGIC ---
+      function openModal(actionName) {
+        // Prevent default link behavior if called from an <a> tag
+        event.preventDefault();
+
+        const titleEl = document.getElementById('modal-title');
+        const bodyEl = document.getElementById('modal-body');
+        const formEl = document.getElementById('mvp-form');
+        const modal = document.getElementById('mvp-modal');
+        const modalContent = document.getElementById('mvp-modal-content');
+
+        // Reset Form visibility
+        formEl.style.display = 'block';
+        formEl.reset();
+
+        // Setup Text
+        titleEl.innerText = actionName;
+        bodyEl.innerHTML = `Please provide your details below to proceed with <b>${actionName}</b>. Our team will get back to you shortly.`;
+
+        // Show Modal
+        modal.classList.remove('hidden');
+
+        // Trigger animation
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+          modalContent.classList.remove('scale-95');
+          modalContent.classList.add('scale-100');
+        }, 10);
+      }
+
+      function closeModal() {
+        const modal = document.getElementById('mvp-modal');
+        const modalContent = document.getElementById('mvp-modal-content');
+
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300); // Matches transition duration
+      }
+
+      function submitMvpForm(e) {
+        e.preventDefault();
+        const actionName = document.getElementById('modal-title').innerText;
+        const bodyEl = document.getElementById('modal-body');
+
+        // Hide Form, Show Success Message
+        e.target.style.display = 'none';
+        bodyEl.innerHTML = `
+                <div class="text-center py-6">
+                    <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-black mb-2">Request Received!</h4>
+                    <p class="text-neutral-600">Thank you! Your request for <b>${actionName}</b> has been submitted successfully. We will contact you soon.</p>
+                </div>
+            `;
+
+        // Auto-close after 3 seconds
+        setTimeout(closeModal, 3000);
+      }
+
+      // Close modal on outside click
+      document
+        .getElementById('mvp-modal')
+        .addEventListener('click', function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+
+      // --- HERO SLIDER LOGIC ---
+      document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        let slideInterval;
+
+        function goToSlide(index) {
+          slides.forEach(slide => {
+            slide.classList.remove('opacity-100', 'z-10');
+            slide.classList.add('opacity-0', 'z-0');
+          });
+
+          dots.forEach(dot => {
+            dot.classList.remove('bg-brand-cyan', 'w-8');
+            dot.classList.add('bg-white/50', 'w-3');
+          });
+
+          slides[index].classList.remove('opacity-0', 'z-0');
+          slides[index].classList.add('opacity-100', 'z-10');
+
+          dots[index].classList.remove('bg-white/50', 'w-3');
+          dots[index].classList.add('bg-brand-cyan', 'w-8');
+
+          currentSlide = index;
+        }
+
+        function nextSlide() {
+          goToSlide((currentSlide + 1) % slideCount);
+        }
+        function prevSlide() {
+          goToSlide((currentSlide - 1 + slideCount) % slideCount);
+        }
+        function startSlider() {
+          if (slideInterval) clearInterval(slideInterval);
+          slideInterval = setInterval(nextSlide, 10000); // 10s
+        }
+
+        prevBtn.addEventListener('click', () => {
+          prevSlide();
+          startSlider();
+        });
+        nextBtn.addEventListener('click', () => {
+          nextSlide();
+          startSlider();
+        });
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            goToSlide(index);
+            startSlider();
+          });
+        });
+
+        startSlider();
+      });
+    </script>
+  </body>
+</html>
